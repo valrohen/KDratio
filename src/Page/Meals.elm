@@ -500,7 +500,7 @@ viewTotalNutrientsHeader model mealPctg =
                 --                    , text (toPercentage targetNutritionRatio.fat)
                 --                    ]
                 ]
-            , div [ class "flex flex-col flex-1 p-2 text-sm" ]
+            , div [ class "flex flex-col flex-1 p-2 text-sm border-r border-black" ]
                 [ span [] [ text "Carbs" ]
                 , span []
                     [ viewMealGrams Food.Carbs model.selectedFoods
@@ -516,8 +516,12 @@ viewTotalNutrientsHeader model mealPctg =
                 --                    ]
                 ]
             , div [ class "flex flex-col flex-1 p-2 text-sm border-r border-black" ]
-                [ span [ class "text-sm" ] [ text "Cal" ]
-                , span [ class "text-sm" ] [ text "KD" ]
+                [ span [] [ text "Cal"]
+                 , span [] [ text "xxx" ]
+                ]
+            , div [ class "flex flex-col flex-1 p-2 text-sm border-r border-black" ]
+                [ span [] [ text "KD"]
+                 , span [] [ text "yyy" ]
                 ]
             ]
         ]
