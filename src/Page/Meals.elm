@@ -519,7 +519,7 @@ viewTotalNutrientsHeader model mealPctg =
                 [ span [] [ text "Cal"]
                  , span [] [ text "xxx" ]
                 ]
-            , div [ class "flex flex-col flex-1 p-2 text-sm border-r border-black" ]
+            , div [ class "flex flex-col flex-1 p-2 text-sm " ]
                 [ span [] [ text "KD"]
                  , span [] [ text "yyy" ]
                 ]
