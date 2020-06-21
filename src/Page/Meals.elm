@@ -485,10 +485,10 @@ viewTotalNutrientsHeader model mealPctg =
             getMealGrams Food.Protein model.selectedFoods
             
         sumCal =
-            getF * 9 + getP * 4 + getCH * 4    
+            String.fromFloat (getF * 9 + getP * 4 + getCH * 4)
 
         sumKD =
-            getF / (getP + getCH)
+            String.fromFloat (getF / (getP + getCH))
             
 
 
@@ -543,11 +543,11 @@ viewTotalNutrientsHeader model mealPctg =
                 ]
             , div [ class "flex flex-col flex-1 p-2 text-sm border-r border-black" ]
                 [ span [] [ text "Cal"]
-                 , span [] [ text "sumCal" ]
+                 , span [] [ text sumCal ]
                 ]
             , div [ class "flex flex-col flex-1 p-2 text-sm " ]
                 [ span [] [ text "KD"]
-                 , span [] [ text "sumKD" ]
+                 , span [] [ text sumKD ]
                 ]
             ]
         ]
