@@ -197,10 +197,14 @@ viewMealGrams nutrient foods =
         [ class "font-medium text-indigo-700" ]
         [ text <| toFixed 1 totalGrams ++ "g" ]
 
---getMealGrams : Food.Nutrient -> List ( Int, Food.Food ) -> Float
---getMealGrams nutrient foods =
---            List.map (\( grams, food ) -> Food.getNutrientGrams nutrient (toFloat grams) food) foods
---                |> List.sum
+getMealGrams : Food.Nutrient -> List ( Int, Food.Food ) -> Float
+getMealGrams nutrient foods =
+    let
+        totalGrams =
+            List.map (\( grams, food ) -> Food.getNutrientGrams nutrient (toFloat grams) food) foods
+                |> List.sum
+    in
+        totalGrams
                 
 viewMealCal : List ( Float, Food.Food ) -> Html Msg
 viewMealCal foodPortions =
@@ -471,20 +475,20 @@ viewTotalNutrientsHeader model mealPctg =
         carbsTarget =
             mealCalories * targetNutritionRatio.carbs / Food.caloriesPerGram.carbs
 
---        getCH =
---            toFloat (toString (viewMealGrams Food.Carbs model.selectedFoods))
+        getCH =
+            getMealGrams Food.Carbs model.selectedFoods
         
---        getF =
---            toFloat (viewMealGrams Food.Fat model.selectedFoods)
+        getF =
+            getMealGrams Food.Fat model.selectedFoods
                     
---        getP =
---            toFloat (viewMealGrams Food.Protein model.selectedFoods)
+        getP =
+            getMealGrams Food.Protein model.selectedFoods
             
---        sumCal =
---            getF * 9 + getP * 4 + getCH * 4    
+        sumCal =
+            getF * 9 + getP * 4 + getCH * 4    
 
---        sumKD =
---            getF / (getP + getCH)
+        sumKD =
+            getF / (getP + getCH)
             
 
 
@@ -539,11 +543,11 @@ viewTotalNutrientsHeader model mealPctg =
                 ]
             , div [ class "flex flex-col flex-1 p-2 text-sm border-r border-black" ]
                 [ span [] [ text "Cal"]
-                 , span [] [ text "xxx" ]
+                 , span [] [ text "sumCal" ]
                 ]
             , div [ class "flex flex-col flex-1 p-2 text-sm " ]
                 [ span [] [ text "KD"]
-                 , span [] [ text "yyy" ]
+                 , span [] [ text "sumKD" ]
                 ]
             ]
         ]
