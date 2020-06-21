@@ -197,7 +197,11 @@ viewMealGrams nutrient foods =
         [ class "font-medium text-indigo-700" ]
         [ text <| toFixed 1 totalGrams ++ "g" ]
 
-
+--getMealGrams : Food.Nutrient -> List ( Int, Food.Food ) -> Float
+--getMealGrams nutrient foods =
+--            List.map (\( grams, food ) -> Food.getNutrientGrams nutrient (toFloat grams) food) foods
+--                |> List.sum
+                
 viewMealCal : List ( Float, Food.Food ) -> Html Msg
 viewMealCal foodPortions =
     let
@@ -466,6 +470,24 @@ viewTotalNutrientsHeader model mealPctg =
 
         carbsTarget =
             mealCalories * targetNutritionRatio.carbs / Food.caloriesPerGram.carbs
+
+--        getCH =
+--            toFloat (toString (viewMealGrams Food.Carbs model.selectedFoods))
+        
+--        getF =
+--            toFloat (viewMealGrams Food.Fat model.selectedFoods)
+                    
+--        getP =
+--            toFloat (viewMealGrams Food.Protein model.selectedFoods)
+            
+--        sumCal =
+--            getF * 9 + getP * 4 + getCH * 4    
+
+--        sumKD =
+--            getF / (getP + getCH)
+            
+
+
     in
     div [ class "mt-2 text-2xl text-center bg-white" ]
         [ span [ class "text-sm tracking-widest uppercase" ] [ text "Target" ]
