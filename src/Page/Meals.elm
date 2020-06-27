@@ -15,6 +15,7 @@ import Task
 import Util exposing (toFixed, toPercentage)
 import View.Helpers as VH
 import Zondicons as Icons
+import String exposing (toInt)
 
 
 -- MODEL
@@ -472,11 +473,12 @@ viewTotalNutrientsHeader model mealPctg =
             getMealGrams Food.Protein model.selectedFoods
             
         sumCal =
-            String.fromFloat sumCal1
-        sumCal1 = (getF * 9 + getP * 4 + getCH * 4)
+            sumCal1
+        sumCal1 = 
+            (getF * 9 + getP * 4 + getCH * 4)
 
         sumKD =
-            String.fromFloat (getF / (getP + getCH))
+            (getF / (getP + getCH))
             
 
 
@@ -531,11 +533,11 @@ viewTotalNutrientsHeader model mealPctg =
                 ]
             , div [ class "flex flex-col flex-1 p-2 text-sm border-r border-black" ]
                 [ span [] [ text "Cal"]
-                 , span [] [ text sumCal ]
+                 , span [] [ text <| toFixed 0 sumCal ]
                 ]
             , div [ class "flex flex-col flex-1 p-2 text-sm " ]
                 [ span [] [ text "KD"]
-                 , span [] [ text sumKD ]
+                 , span [] [ text <| toFixed 2 sumKD ]
                 ]
             ]
         ]
