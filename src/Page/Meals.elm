@@ -17,7 +17,6 @@ import View.Helpers as VH
 import Zondicons as Icons
 
 
-
 -- MODEL
 
 
@@ -463,18 +462,6 @@ viewGramPicker grams name =
 viewTotalNutrientsHeader : Model -> Float -> Html Msg
 viewTotalNutrientsHeader model mealPctg =
     let
-        mealCalories =
-            totalAllowedCalories * mealPctg
-
-        proteinTarget =
-            mealCalories * targetNutritionRatio.protein / Food.caloriesPerGram.protein
-
-        fatTarget =
-            mealCalories * targetNutritionRatio.fat / Food.caloriesPerGram.fat
-
-        carbsTarget =
-            mealCalories * targetNutritionRatio.carbs / Food.caloriesPerGram.carbs
-
         getCH =
             getMealGrams Food.Carbs model.selectedFoods
         
@@ -485,7 +472,8 @@ viewTotalNutrientsHeader model mealPctg =
             getMealGrams Food.Protein model.selectedFoods
             
         sumCal =
-            String.fromFloat (getF * 9 + getP * 4 + getCH * 4)
+            String.fromFloat sumCal1
+        sumCal1 = (getF * 9 + getP * 4 + getCH * 4)
 
         sumKD =
             String.fromFloat (getF / (getP + getCH))
@@ -556,12 +544,7 @@ viewTotalNutrientsHeader model mealPctg =
 view : Model -> VH.Skeleton Msg
 view model =
     { subHeader =
-        [ VH.slider
-            { items = List.map Meal.toString Meal.meals
-            , onBack = Decrement
-            , onNext = Increment
-            , index = model.count
-            }
+        [ Html.text ""
         ]
     , body =
         let
