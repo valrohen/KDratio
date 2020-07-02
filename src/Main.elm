@@ -15,7 +15,6 @@ import Url.Parser as UrlParser
 import View.Helpers as VH
 import Zondicons as Icons
 
-
 main : Program JD.Value Model Msg
 main =
     Browser.application
@@ -329,9 +328,9 @@ viewSettings session =
             , class "v-gap-2"
             , VH.attrIf (not session.settingsOpen) (class "hidden")
             ]
-            [ linkItem "Report a bug" "https://github.com/ChristophP/keto-meal-planner/issues/new"
-            , linkItem "Request a feature" "https://github.com/ChristophP/keto-meal-planner/issues/new"
-            , linkItem "Changelog" "https://github.com/ChristophP/keto-meal-planner/blob/master/CHANGELOG.md"
+            [ linkItem "Report a bug" "https://github.com/valrohen/KDratio/issues/new"
+            , linkItem "Request a feature" "https://github.com/valrohen/KDratio/issues/new"
+            , linkItem "Changelog" "https://github.com/valrohen/KDratio/blob/master/CHANGELOG.md"
             ]
         ]
 
