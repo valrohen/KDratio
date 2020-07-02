@@ -94,7 +94,7 @@ slider :
 slider { onBack, onNext, index, items } =
     let
         buttonClasses =
-            class "w-16 text-indigo-600 hover:text-indigo-800"
+            class "w-16 text-blue-600 hover:text-blue-800"
     in
     div [ class "flex items-center justify-between w-full text-2xl text-center bg-white shadow-md" ]
         [ button

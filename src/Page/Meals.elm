@@ -194,7 +194,7 @@ viewMealGrams nutrient foods =
                 |> List.sum
     in
     span
-        [ class "font-medium text-indigo-700" ]
+        [ class "font-medium text-blue-700" ]
         [ text <| toFixed 1 totalGrams ++ "g" ]
 
 getMealGrams : Food.Nutrient -> List ( Int, Food.Food ) -> Float
@@ -214,7 +214,7 @@ viewMealCal foodPortions =
                 |> List.sum
     in
     span
-        [ class "font-medium text-indigo-700" ]
+        [ class "font-medium text-blue-700" ]
         [ text <| toFixed 0 totalCal ]
 
 
@@ -237,7 +237,7 @@ viewMealKD foodPortions =
             totalGramsF / (totalGramsCH * 4 + totalGramsP * 4)
     in
     span
-        [ class "font-medium text-indigo-700" ]
+        [ class "font-medium text-blue-700" ]
         [ text <| toFixed 1 totalKD ]
 
 
@@ -262,7 +262,7 @@ viewMealPercentage nutrient threshold foods =
     in
     span
         [ class "font-medium"
-        , VH.attrIf ratioGood <| class "text-indigo-700"
+        , VH.attrIf ratioGood <| class "text-blue-700"
         , VH.attrIf (not ratioGood) <| class "text-red-500"
         ]
         [ text <| toPercentage ratio ]
@@ -314,8 +314,8 @@ viewFoodsList searchTerm foods =
             (\( category, items ) ->
                 div [ class "px-4" ]
                     [ p
-                        [ class "pt-1 pb-2 border-t-2 border-indigo-700"
-                        , class "antialiased font-semibold text-indigo-700"
+                        [ class "pt-1 pb-2 border-t-2 border-blue-700"
+                        , class "antialiased font-semibold text-blue-700"
                         ]
                       <|
                         Mark.mark searchTerm category
@@ -351,7 +351,7 @@ viewFoodItem maybeOpenFood ( grams, food ) =
             [ class "flex items-center justify-center"
             , class "text-sm font-semibold leading-relaxed"
             ]
-            [ span [ class "text-indigo-700 " ] [ text food.name ]
+            [ span [ class "text-blue-700 " ] [ text food.name ]
             ]
         , div [ class "flex pb-1" ]
             [ div [ class "flex flex-col flex-1 px-1 text-sm" ]
@@ -395,9 +395,9 @@ viewFoodOverlay { open, onOverlayClick, onDelete, grams, name } =
         , class "transition-transform duration-500"
         , VH.attrIf (not open) <| style "transform" "translateX(90%)"
         ]
-        [ div [ class "absolute inset-0 bg-indigo-700 opacity-75" ] []
+        [ div [ class "absolute inset-0 bg-blue-700 opacity-75" ] []
         , div [ class "absolute inset-0 flex items-center justify-between" ]
-            [ button [ class "w-6 h-full hover:bg-indigo-800", onClick onOverlayClick ]
+            [ button [ class "w-6 h-full hover:bg-blue-800", onClick onOverlayClick ]
                 [ div
                     [ class "transform"
                     , classList [ ( "rotate-180", open ) ]
@@ -572,7 +572,7 @@ view model =
                             model.selectedFoods
                     , button
                         [ class "fixed bottom-0 left-0 right-0 block w-16 h-16 mx-auto mb-2 bg-white rounded-full"
-                        , class "text-indigo-600 hover:text-indigo-800"
+                        , class "text-blue-600 hover:text-blue-800"
                         , onClick AddButtonClicked
                         ]
                         [ Icons.addSolid [ Svg.Attributes.class "rounded-full shadow-md" ] ]

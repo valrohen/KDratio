@@ -222,7 +222,7 @@ viewNav { page } =
                     [ href link
                     , class "block w-full px-4 py-1 my-2 font-bold tracking-wide"
                     , if active then
-                        class "bg-indigo-500"
+                        class "bg-blue-500"
 
                       else
                         class ""
@@ -249,7 +249,7 @@ viewNav { page } =
             []
         , nav
             [ class "absolute inset-y-0 items-center justify-between w-2/3 pt-10 bg-white"
-            , class "text-white bg-indigo-700"
+            , class "text-white bg-blue-700"
             , class "shadow-md transition transition-transform duration-200"
             , if session.navOpen then
                 style "transform" "none"
@@ -288,7 +288,7 @@ viewSkeleton toMsg skeleton model =
     in
     div [ class "relative w-full h-full mx-auto bg-gray-200 max-w-screen-sm" ] <|
         [ header [ class "sticky top-0 z-10 w-full" ]
-            [ div [ class "relative z-10 flex items-center h-12 text-white bg-indigo-700 shadow-md" ]
+            [ div [ class "relative z-10 flex items-center h-12 text-white bg-blue-700 shadow-md" ]
                 [ viewPageTitle skeleton.menuTitle
                 , viewSettings session
                 ]
